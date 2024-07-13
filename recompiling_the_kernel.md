@@ -1,5 +1,5 @@
 
-Get the soruces if the kernel and compile them:
+Get the sources if the kernel and compile them:
 
 ```
 mkdir new_kernel
