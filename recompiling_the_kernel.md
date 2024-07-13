@@ -1,3 +1,4 @@
+## Kernel compilation
 
 Get the sources of the kernel and compile them:
 
@@ -27,13 +28,17 @@ scripts/config --set-str CONFIG_SYSTEM_TRUSTED_KEYS ""
 scripts/config --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
 fakeroot make -j`lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2`
 ```
+The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns the numbers of cores on the current computer.
 
-Launch multipass and install the newly compiled kernel in it:
+## Install the new kernel
+
+We are going to install the kernel instance in a multipass container in order to ensure the stbility of the system.
+Launch a new multipass instane:
 
 ```
 multipass launch
 ```
-
+It creates a new instance with a random name.
 Let's assume the name of the lanched instance is ```wonderful-hairtail```. We can have the list of multipass instance with:
 
 ```
@@ -53,6 +58,8 @@ Now we are logged out of the munltipass instance. We can reconnect with ```multi
 ```
 Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
+
+## Testing the new kernel
 
 Here the following c code:
 ```
