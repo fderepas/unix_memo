@@ -44,9 +44,12 @@ Let's assume the name of the lanched instance is ```wonderful-hairtail```. We ca
 ```
 multipass list
 ```
-Mount currenbt directory under ```/home/ubuntu/kernel``` in the multipass instance, log in the instance and install the new kernel: 
+Mount current directory under ```/home/ubuntu/kernel``` in the multipass instance:
 ```
 multipass mount $PWD wonderful-hairtail:/home/ubuntu/kernel
+```
+Connect to the instance and then install the new kernel: 
+```
 multipass shell wonderful-hairtail
 cd kernel
 sudo apt install make
