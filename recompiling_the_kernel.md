@@ -32,8 +32,8 @@ The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns 
 
 ## Install the new kernel
 
-We are going to install the kernel instance in a multipass container in order to ensure the stbility of the system.
-Launch a new multipass instane:
+We are going to install the kernel instance in a [multipass](https://multipass.run/) container in order to ensure the stability of the system.
+Launch a new multipass instance:
 
 ```
 multipass launch
@@ -91,7 +91,7 @@ int main() {
     return 0;
 }
 ```
-Let's comile and execute:
+Let's compile and execute:
 ```
 sudo apt install gcc
 gcc t.c && ./a.out
