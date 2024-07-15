@@ -1,4 +1,9 @@
-## Compile new kernel sources
+##### Table of Contents  
+[Compile new kernel source code](#compile-new-kernel-source-code)  
+[Install the new kernel](#install-the-new-kernel)  
+[Test the new kernel](#test-the-new-kernel)
+
+## Compile new kernel source code
 
 Get the sources of the kernel and compile them:
 
