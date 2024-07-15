@@ -1,4 +1,4 @@
-# Compile and run the Linux Kernel under Linux/MacOs/Windows
+# Compile and run Linux Kernel under Linux/MacOs/Windows
 
 ##### Table of Contents  
 [Compile new kernel source code](#compile-new-kernel-source-code)  
