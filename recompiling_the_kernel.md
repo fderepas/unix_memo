@@ -38,7 +38,7 @@ Launch a new multipass instance:
 ```
 multipass launch
 ```
-It creates a new instance with a random name.
+It creates a new instance with a random name. If you want to force the name of the instance to ```foo``` you can type ```multipass launch --name foo```.
 Let's assume the name of the lanched instance is ```wonderful-hairtail```. We can have the list of multipass instance with:
 
 ```
