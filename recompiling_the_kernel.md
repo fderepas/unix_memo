@@ -71,7 +71,7 @@ We test the newly installed kernel with ```multipass shell wonderful-hairtail```
 Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-Besides the kenel name, let's test the small patched we aplied. Here the following c code which returns a status:
+Besides the kernel name, let's test the small patch we applied [previously](#compile-new-kernel-source-code)  . Here the following c code which returns a status:
 ```
 // display the return code of a forked process
 #include <stdio.h>
