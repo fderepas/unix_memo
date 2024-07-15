@@ -62,15 +62,18 @@ sudo make modules_install
 sudo make install
 sudo reboot
 ```
-Now we are logged out of the multipass instance. We can reconnect with ```multipass shell wonderful-hairtail```. The command ```uname -a``` returns
+Now we are logged out of the multipass instance.
+
+## Test the new kernel
+
+We test the newly installed kernel with ```multipass shell wonderful-hairtail```. The command ```uname -a``` returns
 ```
 Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-## Test the new kernel
-
-Here the following c code:
+Besides the kenel name, let's test the small patched we aplied. Here the following c code which returns a status:
 ```
+// display the return code of a forked process
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
