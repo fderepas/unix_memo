@@ -1,4 +1,4 @@
-## Kernel compilation
+## Compile new kernel sources
 
 Get the sources of the kernel and compile them:
 
@@ -62,7 +62,7 @@ Now we are logged out of the multipass instance. We can reconnect with ```multip
 Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-## Testing the new kernel
+## Test the new kernel
 
 Here the following c code:
 ```
