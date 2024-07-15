@@ -1,3 +1,5 @@
+# Compile and run the Linux Kernel under Linux/MacOs/Window
+
 ##### Table of Contents  
 [Compile new kernel source code](#compile-new-kernel-source-code)  
 [Install the new kernel](#install-the-new-kernel)  
@@ -37,7 +39,7 @@ The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns 
 
 ## Install the new kernel
 
-We are going to install the kernel instance in a [multipass](https://multipass.run/) container in order to ensure the stability of the system.
+We are going to install the kernel instance in a [multipass](https://multipass.run/) container. It works under Linux/MacOs/Windows.
 Launch a new multipass instance:
 
 ```
