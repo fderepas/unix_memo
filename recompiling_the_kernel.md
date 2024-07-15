@@ -16,7 +16,7 @@ wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
 tar xf linux-6.9.9.tar.xz
 cd linux-6.9.9/
 ```
-Do something dumb like partching the kernel to return values above 255 for a process (just an example to test a patch):
+Do something <span name="patch">dumb</span> like patching the kernel to return values above 255 for a process (just an example to test a patch):
 
 ```
 sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
@@ -73,7 +73,7 @@ We test the newly installed kernel with ```multipass shell wonderful-hairtail```
 Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-Besides the kernel name, let's test the small patch we applied [previously](#compile-new-kernel-source-code)  . Here the following c code which returns a status:
+Besides the kernel name, let's test the small patch we applied [previously](#patch)  . Here the following c code which returns a status:
 ```
 // display the return code of a forked process
 #include <stdio.h>
