@@ -1,2 +1,2 @@
 # unix_memo
-Unix stuff I need to remember
+Unix stuff to remember
