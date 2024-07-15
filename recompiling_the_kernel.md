@@ -9,7 +9,7 @@ wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
 tar xf linux-6.9.9.tar.xz
 cd linux-6.9.9/
 ```
-Do something dumb like partching the kernel to return values above 255 for a process:
+Do something dumb like partching the kernel to return values above 255 for a process (just an example to test a patch):
 
 ```
 sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
