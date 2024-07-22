@@ -113,3 +113,6 @@ it gives the following output:
 ```
 Child process (PID: 1796) terminated with 65536
 ```
+```
+multipass delete -p wonderful-hairtail
+```
