@@ -82,6 +82,7 @@ Besides the kernel name, let's test the small patch we applied [previously](#pat
 #include <sys/types.h>
 #include <sys/wait.h>
  
+To remove the multipass image, type from the host machine:
 int main() {
     pid_t pid;
     int status;
@@ -113,6 +114,7 @@ it gives the following output:
 ```
 Child process (PID: 1796) terminated with 65536
 ```
+To remove the multipass image, type from the host machine:
 ```
 multipass delete -p wonderful-hairtail
 ```
