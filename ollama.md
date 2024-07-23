@@ -40,5 +40,5 @@ for number in "${numbers[@]}"; do
     echo "$number"
 done
 ```
-This result was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores. The 16 cores were used:
+This result was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
 ![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
