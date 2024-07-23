@@ -5,7 +5,7 @@ curl -fsSL https://ollama.com/install.sh > install.sh # inspect the code
 sh install.sh                                         # execute the code
 ```
 
-Let's download [codegemma](https://ollama.com/library/codegemma:7b) from Google via ollama:
+Let's download [codegemma](https://ollama.com/library/codegemma:7b) from Google via [ollama](https://ollama.com/):
 ```
 ollama pull codegemma:7b
 ```
