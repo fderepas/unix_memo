@@ -16,16 +16,6 @@ wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
 tar xf linux-6.9.9.tar.xz
 cd linux-6.9.9/
 ```
-Do something <span name="patch">dumb</span> like patching the kernel to return values above 255 for a process (just an example to test a patch):
-
-```
-sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
-```
-Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker) and type:
-```
-kernel-hardening-checker -g X86_64 > /tmp/fragment
-./scripts/kconfig/merge_config.sh .config /tmp/fragment
-```
 
 
 Get current system config:
@@ -42,6 +32,17 @@ scripts/config --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
 fakeroot make -j`lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2`
 ```
 The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns the numbers of cores on the current computer.
+
+Do something <span name="patch">dumb</span> like patching the kernel to return values above 255 for a process (just an example to test a patch):
+
+```
+sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
+```
+Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker) and type:
+```
+kernel-hardening-checker -g X86_64 > /tmp/fragment
+./scripts/kconfig/merge_config.sh .config /tmp/fragment
+```
 
 ## Install the new kernel
 
