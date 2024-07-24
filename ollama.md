@@ -15,7 +15,7 @@ Now we can run it:
 ollama run codegemma
 ```
 
-A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the anser is:
+A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the answer is:
 
 ```bash
 #!/bin/bash
@@ -40,3 +40,6 @@ for number in "${numbers[@]}"; do
     echo "$number"
 done
 ```
+Ok, it's lexicographic order and not numeric order ;-) This result was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
+
+![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
