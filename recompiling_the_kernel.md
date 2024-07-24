@@ -35,7 +35,7 @@ Do something <span name="patch">dumb</span> like patching the kernel to return v
 ```
 sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
 ```
-Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker) and type:
+Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker) (may affect system performance and functionality of userspace software) and type:
 ```
 kernel-hardening-checker -g X86_64 > /tmp/fragment
 ./scripts/kconfig/merge_config.sh .config /tmp/fragment
