@@ -29,10 +29,7 @@ scripts/config --disable SYSTEM_TRUSTED_KEYS
 scripts/config --disable SYSTEM_REVOCATION_KEYS
 scripts/config --set-str CONFIG_SYSTEM_TRUSTED_KEYS ""
 scripts/config --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
-fakeroot make -j`lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2`
 ```
-The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns the numbers of cores on the current computer.
-
 Do something <span name="patch">dumb</span> like patching the kernel to return values above 255 for a process (just an example to test a patch):
 
 ```
@@ -43,6 +40,13 @@ Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0
 kernel-hardening-checker -g X86_64 > /tmp/fragment
 ./scripts/kconfig/merge_config.sh .config /tmp/fragment
 ```
+
+Now compile!
+```
+fakeroot make -j`lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2`
+```
+The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns the numbers of cores on the current computer.
+
 
 ## Install the new kernel
 
