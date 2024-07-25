@@ -4,10 +4,10 @@ Here is a way to have locally a Large Language Model (LLM) which runs on a PC. F
 curl -fsSL https://ollama.com/install.sh > install.sh # inspect manually the code
 sh install.sh                                         # execute the code
 ```
-
-Let's download [codegemma](https://ollama.com/library/codegemma:7b) from Google via [ollama](https://ollama.com/):
+ 
+Let's download [llama3.1 8b](https://ollama.com/library/llama3.1:8b) from Meta via [ollama](https://ollama.com/):
 ```
-ollama pull codegemma:7b
+ollama pull llama3.1
 ```
 Large image tend to stop, do not hesitate to make a loop, for instance for [llama3.1 70b](https://ollama.com/library/llama3.1:70b) from Meta which size is 40Gb the following script is useful:
 ```
@@ -16,7 +16,7 @@ while true; do ollama pull llama3.1:70b; sleep 300; done
 
 Now we can run it:
 ```
-ollama run codegemma
+ollama run llama3.1
 ```
 
 A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the answer generated locally without an internet connection is:
@@ -24,33 +24,29 @@ A prompt appears. If we ask "Write a bash script which asks for numbers and retu
 ```bash
 #!/bin/bash
 
-# Initialize an empty array to store the numbers
+# Ask the user to enter numbers until they type 'done'
 numbers=()
-
-# Prompt the user to enter numbers
 while true; do
-    read -p "Enter a number (or press Enter to finish): " number
-    if [[ -z "$number" ]]; then
-        break
-    fi
-    numbers+=("$number")
+  read -p "Enter a number, or type 'done' to finish: " num
+  if [ "$num" = "done" ]; then
+    break
+  fi
+  if [[ $num =~ ^[0-9]+$ ]]; then
+    numbers+=("$num")
+  else
+    echo "That's not a valid number. Please try again."
+  fi
 done
 
-# Sort the array of numbers
-sort -n <<< "${numbers[@]}"
-
-# Print the sorted numbers
-for number in "${numbers[@]}"; do
-    echo "$number"
-done
-```
-Ok, it's lexicographic order and not numeric order ;-)  [llama3.1 8b](https://ollama.com/library/llama3.1:8b) has a better answer using integer values and not the lexicographic order:
-
-```bash
+# Sort the numbers and print them out
 readarray -t sorted_numbers < <(printf '%s\n' "${numbers[@]}" | sort -n)
-```
 
-This result with Gemma was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
+echo "You entered:"
+for num in "${sorted_numbers[@]}"; do
+  echo "$num"
+done
+```
+This result with Llama was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
 
 ![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
 
