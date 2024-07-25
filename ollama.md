@@ -1,7 +1,7 @@
-Here is a way to have locally a Large Language Model (LLM) which runs on a PC.
+Here is a way to have locally a Large Language Model (LLM) which runs on a PC. First install  [ollama](https://ollama.com/):
 
 ```
-curl -fsSL https://ollama.com/install.sh > install.sh # inspect the code
+curl -fsSL https://ollama.com/install.sh > install.sh # inspect manually the code
 sh install.sh                                         # execute the code
 ```
 
@@ -9,7 +9,7 @@ Let's download [codegemma](https://ollama.com/library/codegemma:7b) from Google 
 ```
 ollama pull codegemma:7b
 ```
-Large image tend to stop, do not hesitate to make a loop, for instance for [llama3.1 70b](https://ollama.com/library/llama3.1:70b) which size is 40Gb:
+Large image tend to stop, do not hesitate to make a loop, for instance for [llama3.1 70b](https://ollama.com/library/llama3.1:70b) from Meta which size is 40Gb the following script is useful:
 ```
 while true; do ollama pull llama3.1:70b; sleep 300; done
 ```
@@ -19,7 +19,7 @@ Now we can run it:
 ollama run codegemma
 ```
 
-A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the answer is:
+A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the answer generated locally without an internet connection is:
 
 ```bash
 #!/bin/bash
@@ -44,7 +44,7 @@ for number in "${numbers[@]}"; do
     echo "$number"
 done
 ```
-Ok, it's lexicographic order and not numeric order ;-)  [llama3.1 8b](https://ollama.com/library/llama3.1:8b) has a close answer the numeral values and not the lexicographic order:
+Ok, it's lexicographic order and not numeric order ;-)  [llama3.1 8b](https://ollama.com/library/llama3.1:8b) has a better answer using integer values and not the lexicographic order:
 
 ```bash
 readarray -t sorted_numbers < <(printf '%s\n' "${numbers[@]}" | sort -n)
