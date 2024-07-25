@@ -9,6 +9,10 @@ Let's download [codegemma](https://ollama.com/library/codegemma:7b) from Google 
 ```
 ollama pull codegemma:7b
 ```
+Large image tend to stop, do not hesitate to make a loop, for instance for [llama3.1 70b](https://ollama.com/library/llama3.1:70b) which size is 40Gb:
+```
+while true; do ollama pull llama3.1:70b; sleep 300; done
+```
 
 Now we can run it:
 ```
@@ -40,14 +44,21 @@ for number in "${numbers[@]}"; do
     echo "$number"
 done
 ```
-Ok, it's lexicographic order and not numeric order ;-) This result was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
+Ok, it's lexicographic order and not numeric order ;-)  [llama3.1 8b](https://ollama.com/library/llama3.1:8b) has a close answer the numeral values and not the lexicographic order:
+
+```bash
+readarray -t sorted_numbers < <(printf '%s\n' "${numbers[@]}" | sort -n)
+```
+
+This result with Gemma was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
 
 ![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
 
 To list all images type ```ollama list```:
 
 ```
-NAME            	ID          	SIZE  	MODIFIED     
-codegemma:latest	0c96700aaada	5.0 GB	43 hours ago	
-codegemma:7b    	0c96700aaada	5.0 GB	43 hours ago	
+NAME            	ID          	SIZE  	MODIFIED
+llama3.1:latest 	62757c860e01	4.7 GB	13 minutes ago	
+codegemma:latest	0c96700aaada	5.0 GB	10 minutes ago
+codegemma:7b    	0c96700aaada	5.0 GB	10 minutes ago
 ```
