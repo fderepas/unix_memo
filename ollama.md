@@ -21,7 +21,7 @@ Now we can run it:
 ollama run llama3.1
 ```
 
-A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version if the numbers" the answer generated locally without an internet connection is:
+A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version of the numbers" the answer generated locally without an internet connection is:
 
 ```bash
 #!/bin/bash
