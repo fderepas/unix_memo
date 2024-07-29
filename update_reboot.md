@@ -9,6 +9,7 @@ $ sudo crontab -l
 Where ```/root/reboot_if_needed.sh``` is this script which boots randomly if needed in the upcoming hour:
 
 ```bash
+#!/bin/bash
 sleep $((RANDOM % 3600))
 [ -e /run/reboot-required ] && shutdown -r now
 ```
