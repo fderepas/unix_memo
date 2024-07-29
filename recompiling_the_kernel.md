@@ -9,7 +9,7 @@
 
 Get the sources of the kernel and compile them:
 
-```
+```bash
 mkdir new_kernel
 cd new_kernel/
 wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
@@ -19,11 +19,11 @@ cd linux-6.9.9/
 
 
 Get current system config:
-```
+```bash
 cp -v /boot/config-$(uname -r) .config
 ```
 Manual config (always answer yes):
-```
+```bash
 make localmodconfig
 scripts/config --disable SYSTEM_TRUSTED_KEYS
 scripts/config --disable SYSTEM_REVOCATION_KEYS
@@ -32,17 +32,17 @@ scripts/config --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
 ```
 Do something <span name="patch">dumb</span> like patching the kernel to return values above 255 for a process (just an example to test a patch):
 
-```
+```bash
 sed -i -e 's/\(error_code.*\)0xff/\10xfffffff/' kernel/exit.c
 ```
 Or more seriously install [kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker) (may affect system performance and functionality of userspace software) and type:
-```
+```bash
 kernel-hardening-checker -g X86_64 > /tmp/fragment
 ./scripts/kconfig/merge_config.sh .config /tmp/fragment
 ```
 
 Now compile!
-```
+```bash
 fakeroot make -j`lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2`
 ```
 The command ```lscpu | grep '^CPU(s):' | tr -s ' ' | cut -d ' ' -f 2``` returns the numbers of cores on the current computer.
@@ -85,7 +85,7 @@ Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2
 ```
 
 Besides the kernel name, let's test the small patch we applied [previously](#patch)  . Here the following c code which returns a status:
-```
+```c
 // display the return code of a forked process
 #include <stdio.h>
 #include <stdlib.h>
@@ -117,7 +117,7 @@ int main() {
 }
 ```
 Let's compile and execute:
-```
+```bash
 sudo apt install gcc
 gcc t.c && ./a.out
 ```
@@ -126,6 +126,6 @@ it gives the following output:
 Child process (PID: 1796) terminated with 65536
 ```
 To remove the multipass image, type from the host machine:
-```
+```bash
 multipass delete -p wonderful-hairtail
 ```
