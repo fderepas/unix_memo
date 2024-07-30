@@ -6,10 +6,11 @@ $ sudo crontab -l
 0 2 * * * apt upgrade -y
 0 3 * * * /bin/bash /root/reboot_if_needed.sh
 ```
-Where ```/root/reboot_if_needed.sh``` is this script which boots randomly if needed in the upcoming hour:
+Where ```/root/reboot_if_needed.sh``` is a script which reboots randomly if needed in the upcoming hour:
 
 ```bash
 #!/bin/bash
 sleep $((RANDOM % 3600))
 [ -e /run/reboot-required ] && shutdown -r now
 ```
+Reboot time is random so that not all machines reboot simultaneously.
