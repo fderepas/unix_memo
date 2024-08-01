@@ -5,6 +5,8 @@
 [Install the new kernel](#install-the-new-kernel)  
 [Test the new kernel](#test-the-new-kernel)
 
+We assume we are using an ubuntu system.
+
 ## Compile new kernel source code
 
 Get the sources of the kernel and compile them:
