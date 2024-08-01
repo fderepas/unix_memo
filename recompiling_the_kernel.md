@@ -1,4 +1,4 @@
-# Compile and run Linux Kernel 
+# Compile and run the Linux Kernel 
 
 ##### Table of Contents  
 [Compile new kernel source code](#compile-new-kernel-source-code)  
