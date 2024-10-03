@@ -6,7 +6,7 @@ $ sudo crontab -l
 0 2 * * * apt upgrade -y
 0 3 * * * /bin/bash /root/reboot_if_needed.sh
 ```
-Where ```/root/reboot_if_needed.sh``` is a script which reboots randomly if needed in the upcoming hour:
+Where ```/root/reboot_if_needed.sh``` is a script which reboots randomly if file ```/run/reboot-required``` exists. The reboot is performed in the upcoming hour:
 
 ```bash
 #!/bin/bash
