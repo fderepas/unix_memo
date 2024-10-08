@@ -9,13 +9,13 @@
     <script src="wasm.js"></script>
     <script>
       // class RandomAllocatorOfA uses c++ bindings from file a.cc.
-      function RandomAllocatorOfA() {
-          this.ptr = Module.getRandomAllocatorOfA();
+      function RandomAllocatorOfA(size) {
+          this.ptr = Module.getRandomAllocatorOfA(size);
           this.performAllocations = function () {
               return Module.performAllocations(this.ptr);
           }
           this.getBufferSize = function () {
-              return Module.getBufferSize();
+              return Module.getBufferSize(this.ptr);
           }
       }
       let domContentLoaded=false;
@@ -23,10 +23,14 @@
           while(!domContentLoaded) {
               console.log("Waiting for dom to load");
           }
-          let randomAllocatorOfA = new RandomAllocatorOfA();
-          let s="performed " + randomAllocatorOfA.performAllocations()
+          let randomAllocatorOfA = new RandomAllocatorOfA(1024);
+          let s="performed "
+              + randomAllocatorOfA.performAllocations()
+              .toLocaleString('en-US', {maximumFractionDigits:2})
               + " allocations in a buffer of size "
-              + randomAllocatorOfA.getBufferSize()+ ".";
+              + randomAllocatorOfA.getBufferSize()
+              .toLocaleString('en-US', {maximumFractionDigits:2})
+              + ".";
           document.getElementById("show_result").innerHTML=s;
       }
       window.addEventListener('DOMContentLoaded', (event) => {

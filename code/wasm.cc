@@ -16,6 +16,8 @@
 #include <map>
 #include <iostream>
 #include <cstdlib>  // rand srand
+#include <string.h> // memset
+
 using namespace std;
 
 /**
@@ -70,23 +72,22 @@ public:
     void operator delete(void* ptr) noexcept;
 };
 
-#define MAX_ALLOCATOR_SIZE 1024
-Allocator<A> myAllocator(MAX_ALLOCATOR_SIZE);
-
+Allocator<A> * myAllocator = nullptr;
 
 void * A::operator new(std::size_t sz) noexcept {
-    return static_cast<void*>(myAllocator.get());
+    return static_cast<void*>(myAllocator->get());
 }
 
 void A::operator delete(void* ptr) noexcept {
-    myAllocator.rm(static_cast<A*>(ptr));
+    myAllocator->rm(static_cast<A*>(ptr));
 }
 
 class RandomAllocatorOfA {
 public:
-    RandomAllocatorOfA() {
+    RandomAllocatorOfA(int size): allocator(size) {
         // initialize the random seed on the clock
         srand((unsigned) time(NULL));
+        myAllocator=&allocator;
     }
     /**
      * @brief perform random allocation/deallocation.
@@ -94,39 +95,47 @@ public:
     int performAllocations() {
         int totalAlloc=0;
         int countAllocatedInstances=0;
-        int loopCount=100000;
+        int loopCount=10000;
+        int sz=allocator.size;
+        // keep track of allocations performed
+        A** arr = new A*[sz];
+        memset(arr,0,sizeof(A*)*sz);
         while (loopCount-->0) {
-            A* arr[MAX_ALLOCATOR_SIZE];
-            memset(arr,0,sizeof(arr));
             int imax =
-                (MAX_ALLOCATOR_SIZE-countAllocatedInstances)>1?
-                rand()%(MAX_ALLOCATOR_SIZE-countAllocatedInstances-1)+1:
+                (sz-countAllocatedInstances)>1?
+                rand()%(sz-countAllocatedInstances-1)+1:
                 0;
             // perform imax allocations
-            for (int i=0;i<imax;++i) {
-                arr[i]=new A(rand());
-                if (arr[i]!=nullptr) {
-                    countAllocatedInstances++;
-                    totalAlloc++;
-                } else {
-                    cerr << "---" << countAllocatedInstances << endl;
+            int index=0;
+            for (int i=0;index<sz && i<imax;++i) {
+                while (arr[index] && index<sz) ++index;
+                if (index<sz) {
+                    arr[index]=new A(rand());
+                    if (arr[index]!=nullptr) {
+                        countAllocatedInstances++;
+                        totalAlloc++;
+                    } else {
+                        cerr << "---" << countAllocatedInstances << endl;
+                    }
                 }
             }
             int maxDeAlloc = rand()%countAllocatedInstances;
-            // free randomly a maximum of maxDeAlloc nodes
+            // free randomly a maximum of maxDeAlloc instances
             for (int i=0;i<maxDeAlloc;++i) {
-                int index = rand()%MAX_ALLOCATOR_SIZE;
-                // cerr << index << endl;
+                // get a random index
+                int index = rand()%sz ;
+                // delete if it's an allocated node
                 if (arr[index]!=nullptr) {
                     delete arr[index];
-                    arr[index]=nullptr;
+                    arr[index]=nullptr; // forget the node
                     countAllocatedInstances--;
                 }
             }
-            cout << countAllocatedInstances << endl;
         }
+        delete [] arr;
         return totalAlloc;
     }
+    Allocator<A> allocator;
 };
 
 /*** *** *** beging c++/js bindings *** *** ***/
@@ -135,8 +144,8 @@ public:
 #include <emscripten/bind.h>
 #include <sstream>
 
-int getRandomAllocatorOfA() {
-    return (int)new RandomAllocatorOfA();
+int getRandomAllocatorOfA(int size) {
+    return (int)new RandomAllocatorOfA(size);
 }
 
 int performAllocations(int ptr) {
@@ -144,8 +153,9 @@ int performAllocations(int ptr) {
     return randomAllocatorOfA->performAllocations();
 }
 
-int getBufferSize() {
-    return myAllocator.size;
+int getBufferSize(int ptr) {
+    RandomAllocatorOfA * randomAllocatorOfA = (RandomAllocatorOfA*)ptr;
+    return randomAllocatorOfA->allocator.size;
 }
 
 EMSCRIPTEN_BINDINGS(module) {
@@ -155,13 +165,13 @@ EMSCRIPTEN_BINDINGS(module) {
 }
 
 /* we expect the following js code to call these c++ functions:
-function RandomAllocatorOfA() {
-    this.ptr = Module.getRandomAllocatorOfA();
+function RandomAllocatorOfA(size) {
+    this.ptr = Module.getRandomAllocatorOfA(size);
     this.performAllocations = function () {
         return Module.performAllocations(this.ptr);
     }
     this.getBufferSize = function () {
-        return Module.getBufferSize();
+        return Module.getBufferSize(this.ptr);
     }
 }
 */
@@ -172,10 +182,11 @@ function RandomAllocatorOfA() {
 // when not using web assembly: create a "main" function to have a
 // regular c++ executable
 int main () {
-    RandomAllocatorOfA randomAllocatorOfA;
+    RandomAllocatorOfA randomAllocatorOfA(1024);
+    std::cout.imbue(std::locale(""));
     cout << "performed " << randomAllocatorOfA.performAllocations()
          << " allocations in a buffer of size "
-         << MAX_ALLOCATOR_SIZE << "." << endl;
+         << myAllocator->size << "." << endl;
     return 0;
 }
 #endif
