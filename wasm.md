@@ -74,5 +74,5 @@ void * A::operator new(std::size_t sz) noexcept {
 void A::operator delete(void* ptr) noexcept {
     myAllocator.rm(static_cast<A*>(ptr));
 }
-``
+```
 Complete example is available using a [C++ file](https://github.com/fderepas/unix_memo/blob/main/code/wasm.cc) and an [html file](https://github.com/fderepas/unix_memo/blob/main/code/wasm.html).
