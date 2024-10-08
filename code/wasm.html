@@ -1,0 +1,40 @@
+<!--
+    View this page via a web server. For instance to launch a server
+    in the directory where this file is type on the command line:
+        python -m http.server 8080
+    then using a browser go to http://127.0.0.1:8080/wasm.html
+  -->
+<html>
+  <head>
+    <script src="wasm.js"></script>
+    <script>
+      // class RandomAllocatorOfA uses c++ bindings from file a.cc.
+      function RandomAllocatorOfA() {
+          this.ptr = Module.getRandomAllocatorOfA();
+          this.performAllocations = function () {
+              return Module.performAllocations(this.ptr);
+          }
+          this.getBufferSize = function () {
+              return Module.getBufferSize();
+          }
+      }
+      let domContentLoaded=false;
+      Module['onRuntimeInitialized'] = function() {
+          while(!domContentLoaded) {
+              console.log("Waiting for dom to load");
+          }
+          let randomAllocatorOfA = new RandomAllocatorOfA();
+          let s="performed " + randomAllocatorOfA.performAllocations()
+              + " allocations in a buffer of size "
+              + randomAllocatorOfA.getBufferSize()+ ".";
+          document.getElementById("show_result").innerHTML=s;
+      }
+      window.addEventListener('DOMContentLoaded', (event) => {
+          domContentLoaded=true;
+      });
+    </script>
+  </head>
+  <body>
+    <div id="show_result"></div>
+  </body>
+</html>
