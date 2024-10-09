@@ -60,12 +60,12 @@ public:
     void operator delete(void* ptr) noexcept;
 };
 ```
-The allocator can be instanciated using:
+The allocator can be instanciated using for instance:
 ```c++
 Allocator<A> myAllocator(1024);
 
 ```
-And ```new``` and ```delete``` operators can be overriden by:
+And ```new``` and ```delete``` operators can be overriden by the following two methods:
 ```c++
 void * A::operator new(std::size_t sz) noexcept {
     return static_cast<void*>(myAllocator.get());
@@ -75,4 +75,4 @@ void A::operator delete(void* ptr) noexcept {
     myAllocator.rm(static_cast<A*>(ptr));
 }
 ```
-Complete example is available using a [C++ file](https://github.com/fderepas/unix_memo/blob/main/code/wasm.cc) and an [html file](https://github.com/fderepas/unix_memo/blob/main/code/wasm.html).
+A complete example is available [here](https://github.com/fderepas/unix_memo/blob/main/code/wasm/).
