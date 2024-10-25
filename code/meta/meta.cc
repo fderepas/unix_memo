@@ -183,8 +183,8 @@ int main() {
          << output(IsPrime<Decimal2<nine,nine>::value>::value()) << endl;
     // is 443 prime?
     // requires "-ftemplate-depth=1237" for compilation with g++
-    cout << "443 "
-         << output(IsPrime<Decimal3<four,four,three>::value>::value()) << endl;
+    //cout << "443 "
+    //     << output(IsPrime<Decimal3<four,four,three>::value>::value()) << endl;
     return 0;
 }
 
