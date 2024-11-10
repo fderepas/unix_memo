@@ -4,7 +4,7 @@ We used the ```backtrace``` and ```backtrace_symbols``` system calls.
 
 Then command line tool ```addr2line```, and the ```abi::__cxa_demangle``` function to display human readable version.
 
-![code is here](https://github.com/fderepas/unix_memo/blob/main/code/stracktrace/)
+![code is here](https://github.com/fderepas/unix_memo/tree/main/code/stacktrace)
 
 Here is a result of execution:
 
