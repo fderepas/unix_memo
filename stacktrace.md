@@ -12,16 +12,18 @@ Here is a result of execution:
 Stack trace:
 in printStackTrace()
     at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:15
-in f1()
-    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:58
-in f2()
-    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:59
-in f3()
+in A::A(int)
     at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
-in f4()
-    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:61
-in f5()
-    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:62
+in A::A(int)
+    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
+in A::A(int)
+    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
+in A::A(int)
+    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
+in A::A(int)
+    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
+in A::A(int)
+    at /home/fabrice/git/unix_memo/code/stacktrace/stacktrace.cc:60
 ```
 
 

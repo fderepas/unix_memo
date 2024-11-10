@@ -55,14 +55,19 @@ void printStackTrace() {
     free(symbols);
 }
 
-void f1() { printStackTrace();}
-void f2() { f1();} 
-void f3() { f2();} 
-void f4() { f3();} 
-void f5() { f4();} 
+class A {
+public:
+    A(int i) {
+        if (i==0)
+            printStackTrace();
+        else {
+            A a(i-1);
+        }
+    }
+};
 
 int main(int argc, char ** argv) {
     progName = argv[0];
-    f5();
+    A a(5);
     return 0;
 }
