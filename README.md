@@ -1,6 +1,7 @@
 # unix_memo
 Unix stuff to remember
 - [Show the call stack in C++](https://github.com/fderepas/unix_memo/blob/main/stacktrace.md)
+- [Meta programming in C++](https://github.com/fderepas/unix_memo/blob/main/meta.md)
 - [Using AI to locally generate source code](https://github.com/fderepas/unix_memo/blob/main/ollama.md)
 - [Compiling the kernel using multipass](https://github.com/fderepas/unix_memo/blob/main/recompiling_the_kernel.md)
 - [Reboot at night](https://github.com/fderepas/unix_memo/blob/main/update_reboot.md)
