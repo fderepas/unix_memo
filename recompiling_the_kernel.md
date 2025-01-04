@@ -5,7 +5,10 @@
 [Install the new kernel](#install-the-new-kernel)  
 [Test the new kernel](#test-the-new-kernel)
 
-We assume we are using an ubuntu system.
+We assume we are using an ubuntu system. Install some needed packages to compile the kernel:
+```bash
+sudo apt install -y flex bison gcc
+```
 
 ## Compile new kernel source code
 
