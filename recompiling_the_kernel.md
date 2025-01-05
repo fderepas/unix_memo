@@ -7,7 +7,7 @@
 
 We assume we are using an ubuntu system. Install some needed packages to compile the kernel:
 ```bash
-sudo apt install -y flex bison gcc libelf-dev
+sudo apt install -y flex bison gcc make libelf-dev
 ```
 
 ## Compile new kernel source code
