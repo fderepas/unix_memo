@@ -7,7 +7,7 @@ The debug probe is connected to the computer using a usb cable.
 
 Under Linux the probe should appear under ```/dev/ttyACM0```.
 
-In case ```/dev/ttyACM0``` does not show up when plugging the probe, make sure the CDC ADM driver is present. The line ```CONFIG_USB_ACM=m``` should be present in ```.config``` when compiling the kernel.
+In case ```/dev/ttyACM0``` does not show up when plugging the probe, make sure the [CDC ACM driver](https://github.com/torvalds/linux/blob/master/drivers/usb/class/cdc-acm.c) is present. The line ```CONFIG_USB_ACM=m``` should be present in ```.config``` when compiling the kernel.
 
 
 # On a Raspberry Pi 3 or 4
