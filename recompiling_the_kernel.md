@@ -5,7 +5,10 @@
 [Install the new kernel](#install-the-new-kernel)  
 [Test the new kernel](#test-the-new-kernel)
 
-We assume we are using an ubuntu system.
+We assume we are using an ubuntu system. Install some needed packages to compile the kernel:
+```bash
+sudo apt install -y flex bison gcc make libelf-dev
+```
 
 ## Compile new kernel source code
 
@@ -14,9 +17,9 @@ Get the sources of the kernel and compile them:
 ```bash
 mkdir new_kernel
 cd new_kernel/
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
-tar xf linux-6.9.9.tar.xz
-cd linux-6.9.9/
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.8.tar.xz
+tar xf linux-6.12.8.tar.xz
+cd linux-6.12.8/
 ```
 
 
@@ -83,7 +86,7 @@ Now we are logged out of the multipass instance.
 
 We test the newly installed kernel with ```multipass shell wonderful-hairtail```. The command ```uname -a``` returns
 ```
-Linux wonderful-hairtail 6.9.9 #1 SMP PREEMPT_DYNAMIC Sat Jul 13 09:19:26 CEST 2024 x86_64 x86_64 x86_64 GNU/Linux
+Linux wonderful-hairtail 6.12.8 #1 SMP PREEMPT_DYNAMIC Sat Jan 4 09:19:26 CEST 2025 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 Besides the kernel name, let's test the small patch we applied [previously](#patch)  . Here the following c code which returns a status:
