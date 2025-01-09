@@ -1,6 +1,8 @@
 This page details how to use the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/).
 
 
+![Raspberry Pi Debug Probe Box](https://github.com/fderepas/unix_memo/blob/main/img/rpi_debug_probe_box.jpg)
+
 # USB Connection
 
 The debug probe is connected to the computer using a usb cable.
@@ -20,7 +22,7 @@ GPIO pins are labelled as shown below on Raspbetty Pi 3.
 
 ![Connection the probe on UART GPIO pins](https://github.com/fderepas/unix_memo/blob/main/img/rpi_gpio.png)
 
-The 3-pin debug cable to 0.1 jumper (female) connects the probe to te GPIO. The black cable, ground is connected to pin #6. Yellow cable (RX/SD) is connected to  pin #8 labelled GPIO 14. Orange cable(TX/SC) is connected to pin #10 labelled GPIO 15.
+The 3-pin debug cable to 0.1 jumper (female) connects the probe to the GPIO. The black cable, ground is connected to pin #6. Yellow cable (RX/SD) is connected to  pin #8 labelled GPIO 14. Orange cable(TX/SC) is connected to pin #10 labelled GPIO 15.
 
 On the Raspberry Pi UART is not enabled by default. Make sure that in the file ```/boot/firmware/config.txt``` there is:
 ```
