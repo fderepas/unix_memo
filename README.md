@@ -7,3 +7,4 @@ Unix stuff to remember
 - [Reboot at night](https://github.com/fderepas/unix_memo/blob/main/update_reboot.md)
 - [Disable sleep](https://github.com/fderepas/unix_memo/blob/main/disable_sleep.md)
 - [Wasm and memory allocation](https://github.com/fderepas/unix_memo/blob/main/wasm.md)
+- [Using the Raspberry Pi Debug Probe](https://github.com/fderepas/unix_memo/blob/main/debug_probe.md)
