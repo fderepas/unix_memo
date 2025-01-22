@@ -7,48 +7,47 @@ curl -fsSL https://ollama.com/install.sh > install.sh # inspect manually the cod
 sh install.sh                                         # execute the code
 ```
  
-Let's download [llama3.1 8b](https://ollama.com/library/llama3.1:8b) from Meta via [ollama](https://ollama.com/):
+Let's download [llama3.2](https://ollama.com/library/llama3.2) from Meta via [ollama](https://ollama.com/):
 ```
-ollama pull llama3.1
+ollama pull llama3.2
 ```
-Large image tend to stop, do not hesitate to make a loop, for instance for [llama3.1 70b](https://ollama.com/library/llama3.1:70b) from Meta which size is 40Gb the following script is useful:
-```
-while true; do ollama pull llama3.1:70b; sleep 300; done
-```
-
 Now we can run it:
 ```
-ollama run llama3.1
+ollama run llama3.2
 ```
-
-A prompt appears. If we ask "Write a bash script which asks for numbers and returns a sorted version of the numbers" the answer generated locally without an internet connection is:
+A prompt appears. We can now ask questions such as "What are memory protection keys in the context of CPU?". If we ask "Write a bash script which asks for numbers and returns a sorted version of the numbers" the answer generated locally without an internet connection is:
 
 ```bash
 #!/bin/bash
 
-# Ask the user to enter numbers until they type 'done'
+# Ask for input
+echo "Enter some numbers (type 'done' when finished)"
+read -r num
+
 numbers=()
+
 while true; do
-  read -p "Enter a number, or type 'done' to finish: " num
-  if [ "$num" = "done" ]; then
+  read -r line
+  if [ "$line" = "done" ]; then
     break
   fi
-  if [[ $num =~ ^[0-9]+$ ]]; then
-    numbers+=("$num")
-  else
-    echo "That's not a valid number. Please try again."
-  fi
+  numbers+=($line)
 done
 
-# Sort the numbers and print them out
+# Validate user input
+if [ ${#numbers[@]} -eq 0 ]; then
+  echo "No numbers entered!"
+  exit 1
+fi
+
+# Sort the numbers
 readarray -t sorted_numbers < <(printf '%s\n' "${numbers[@]}" | sort -n)
 
-echo "You entered:"
-for num in "${sorted_numbers[@]}"; do
-  echo "$num"
-done
+# Print the sorted list
+echo "Sorted numbers:"
+printf '%s ' "${sorted_numbers[@]}"
 ```
-This result with Llama was given in 30 seconds on a dell xps 15 with intel i7 with 16 cores, 32GB RAM, NVIDIA GeForce RTX™ 3050. The 16 cores were used:
+This result with Llama was given in 30 seconds on a Lenovo Thinkpad P14 with 16 cores, 32GB RAM. The 16 cores were used:
 
 ![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
 
