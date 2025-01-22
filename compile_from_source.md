@@ -8,7 +8,6 @@ git clone https://github.com/git/git
 cd git
 aclocal
 autoconf
-automake --add-missing
 autoreconf --install --force --verbose
 ./configure --prefix=/my/dir --without-tcltk --with-curl=yes --with-openssl=yes --with-expat=yes
 make
