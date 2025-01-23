@@ -10,7 +10,7 @@ Types: deb
 ```
 In order to also download sources, simply add ```deb-src```:
 ```
-Types: deb-src
+Types: deb deb-src
 ```
 That can be done automatically with the following command
 ```
