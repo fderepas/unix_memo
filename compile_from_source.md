@@ -1,4 +1,4 @@
-# Compile some package from the sources
+# Compile packages from  source code
 
 Here is how to download source code of packages on an Ubuntu distro.
 As of Ubuntu 24.10 repositories to get sources
@@ -25,17 +25,16 @@ For instance, now it's possible to dowload the source code of the bash package b
 apt-get source bash
 ```
 
-
 ## Git
-To download, compile and install in ```/my/dir``` from source Git, type in a shell:
+Here is how to download source code, perform compilation and install the binaries in directory ```/my/dir```. Type in a shell:
 ```bash
-sudo apt install -y git gcc make automake gettext libcurl4-openssl-dev libssl-dev 
-git clone https://github.com/git/git
-cd git
+sudo apt install -y git gcc make automake gettext libcurl4-openssl-dev libssl-dev
+apt source git
+cd git-2.45.2
 aclocal
 autoconf
 autoreconf --install --force --verbose
-./configure --prefix=/my/dir --without-tcltk --with-curl=yes --with-openssl=yes --with-expat=yes CFLAGS="${CFLAGS} -static"
+./configure --prefix=/my/dir --without-tcltk --with-curl=yes --with-openssl=yes --with-expat=yes 
 make
 sudo make install
 ```
