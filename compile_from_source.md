@@ -14,7 +14,7 @@ Types: deb deb-src
 ```
 That can be done automatically with the following command
 ```
-sudo sed -i '2/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
+sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
 ```
 Then update the content of repositories:
 ```
