@@ -28,7 +28,7 @@ apt-get source bash
 ## Git
 Here is how to download source code, perform compilation and install the binaries in directory ```/my/dir```. Type in a shell:
 ```bash
-sudo apt install -y git gcc make automake gettext libcurl4-openssl-dev libssl-dev
+sudo apt install -y git gcc make automake gettext libcurl4-openssl-dev libssl-dev dpkg-dev
 apt source git
 cd git-2.45.2
 aclocal
