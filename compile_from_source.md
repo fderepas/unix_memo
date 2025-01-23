@@ -12,15 +12,15 @@ In order to also download sources, simply add ```deb-src```:
 ```
 Types: deb deb-src
 ```
-That can be done automatically with the following command
+That can be done automatically with the following command:
 ```
 sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
 ```
-Then update the content of repositories:
+Then update the local immage of the content of repositories:
 ```
 sudo apt update
 ```
-Then to dowload the source code of bash you can type:
+For instance, now it's possible to dowload the source code of the bash package by just typing:
 ```
 apt-get source bash
 ```
