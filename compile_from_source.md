@@ -27,10 +27,11 @@ apt-get source bash
 
 ## Git
 Here is how to download source code, perform compilation and install the binaries in directory ```/my/dir```. Type in a shell:
+<!--- check --->
 ```bash
 sudo apt install -y gcc make automake gettext libcurl4-openssl-dev libssl-dev dpkg-dev zlib1g zlib1g-dev
 apt source git
-cd git-2.45.2
+cd `ls -F | grep ^git- | grep /$`  # change to the source just downloaded
 aclocal
 autoconf
 autoreconf --install --force --verbose
