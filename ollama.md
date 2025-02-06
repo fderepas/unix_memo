@@ -11,7 +11,11 @@ Let's download [llama3.2](https://ollama.com/library/llama3.2) from Meta via [ol
 ```
 ollama pull llama3.2
 ```
-Now we can run it:
+or if you prefer Deepseek:
+```
+ollama run deepseek-r1:32b
+```
+Now we can run the model:
 ```
 ollama run llama3.2
 ```
