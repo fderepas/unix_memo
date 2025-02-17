@@ -8,4 +8,4 @@ Unix stuff to remember
 - [Disable sleep](https://github.com/fderepas/unix_memo/blob/main/disable_sleep.md)
 - [Wasm and memory allocation](https://github.com/fderepas/unix_memo/blob/main/wasm.md)
 - [Using the Raspberry Pi Debug Probe](https://github.com/fderepas/unix_memo/blob/main/debug_probe.md)
-- [Compile packages from the source code](https://github.com/fderepas/unix_memo/blob/main/compile_from_source.md)
+- [Compile packages from source code](https://github.com/fderepas/unix_memo/blob/main/compile_from_source.md)
