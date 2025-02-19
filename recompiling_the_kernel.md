@@ -97,8 +97,7 @@ Besides the kernel name, let's test the small patch we applied [previously](#pat
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
- 
-To remove the multipass image, type from the host machine:
+
 int main() {
     pid_t pid;
     int status;
