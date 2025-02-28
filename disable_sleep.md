@@ -1,4 +1,4 @@
-To prevent my ubuntu system from going to sleep:
+To prevent my Ubuntu system from going to sleep:
 ```
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
