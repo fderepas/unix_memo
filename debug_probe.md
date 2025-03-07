@@ -34,7 +34,7 @@ Otherwise add these two lines. Then reboot the Raspberry Pi.
 Then on the computer connected by USB type:
 ```
 sudo apt install screen
-sudo screen /dev/ttyACM0 11520
+sudo screen /dev/ttyACM0 115200
 ```
 
 It's then possible to connect from the computer, using login and password of a user on the Raspberry Pi.
