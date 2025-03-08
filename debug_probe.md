@@ -12,7 +12,7 @@ Under Linux the probe should appear under ```/dev/ttyACM0```.
 In case ```/dev/ttyACM0``` does not show up when plugging the probe, make sure the [CDC ACM driver](https://github.com/torvalds/linux/blob/master/drivers/usb/class/cdc-acm.c) is present. The line ```CONFIG_USB_ACM=m``` should be present in ```.config``` when compiling the kernel.
 
 
-# On a Raspberry Pi 3 or 4
+# Raspberry Pi 3 or 4
 
 We use the UART port on the probe that we connect to the following GPIO pins as shown in the photo below.
 
@@ -39,7 +39,10 @@ sudo screen /dev/ttyACM0 115200
 
 It's then possible to connect from the computer, using login and password of a user on the Raspberry Pi.
 
+# Vision Five 2
+
+Here is how to plug the cables on a [Vision Five 2](https://www.starfivetech.com/en/site/boards):
 
 
-
+![Connection the probe on UART GPIO pins for Vision Five 2](https://github.com/fderepas/unix_memo/blob/main/img/uart_vision_five_2.jpg)
 
