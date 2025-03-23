@@ -39,7 +39,7 @@ int main() {
     return 0;
 }
 ```
-Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/bypass/main.c).
+Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/direct_syscall/main.c).
 
 Here is the equivalent in Rust:
 ```rust
@@ -66,4 +66,4 @@ fn main() {
     }
 }
 ```
-Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/bypass/main.rs).
+Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/direct_syscall/main.rs).
