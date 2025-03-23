@@ -1,10 +1,12 @@
-This page presents how to perform direct system calls to the kernel in C and in Rust.
+This page presents how to perform direct system calls from user space to the kernel in C and in Rust.
 
 # Linux on x86_64
 
 The 64-bit system call numbers and entry vectors in Linux is given by [syscall_64.tbl](https://github.com/torvalds/linux/blob/v6.7/arch/x86/entry/syscalls/syscall_64.tbl).
 
 It can be found in the lib-c or in [Rust Syscall](https://docs.rs/syscalls/0.6.18/src/syscalls/arch/x86_64.rs.html) crate.
+
+## In C
 
 Here is an 'hello world' program in C with direct Linux system calls in assembly:
 ```c
@@ -41,6 +43,8 @@ int main() {
 ```
 Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/direct_syscall/main.c).
 
+## Rust
+
 Here is the equivalent in Rust:
 ```rust
 use std::arch::asm;
@@ -67,3 +71,4 @@ fn main() {
 }
 ```
 Code is [here](https://github.com/fderepas/unix_memo/blob/main/code/direct_syscall/main.rs).
+
