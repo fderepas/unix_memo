@@ -4,7 +4,7 @@ fn main() {
     // variable representing the Linux syscall we want to call
     let syscall_number : i32 = 1;                    // 4 bytes
     // file descriptor on which to write
-    let file_descriptor : u64 = 1;                   // 4 bytes
+    let file_descriptor : i32 = 1;                   // 4 bytes
     // buffer to write
     let message = b"Hello, world!\n";
     // number of bytes to write
