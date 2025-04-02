@@ -1,0 +1,8 @@
+## Cross compiling for i686-unknown-linux-gnu
+git clone https://github.com/crosstool-ng/crosstool-ng.git
+cd crosstool-ng
+sudo apt install -y automake bison flex gawk grep help2man \
+    libtool m4 make ncurses-dev patch perl rsync sed texinfo wget python git
+ct-ng i686-nptl-linux-gnu
+sed -e 's/CT_TARGET_VENDOR=.*/CT_TARGET_VENDOR=unknown/' -i .config
+ct-ng build
