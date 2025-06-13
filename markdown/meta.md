@@ -2,7 +2,7 @@
 
 We are going to perform a test of primality at compile time, using C++ template instantiation mechanism.
 
-![code is here](https://github.com/fderepas/unix_memo/tree/main/code/meta)
+![code is here](./tree/main/code/meta)
 
 Let's define the set of natural integers with:
 
