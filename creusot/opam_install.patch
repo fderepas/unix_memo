@@ -1,0 +1,47 @@
+--- install.sh	2025-04-06 19:32:19.617861810 +0200
++++ install_patched.sh	2025-04-06 19:34:35.965193676 +0200
+@@ -564,7 +564,7 @@
+     fi
+     if [ "$NOBACKUP" = 1 ]; then
+         printf "## This will clear %s and %s. Continue ? [Y/n] " "$OPAM" "$OPAMROOT"
+-        read_tty R
++        R=""
+         case "$R" in
+             ""|"y"|"Y"|"yes")
+                 xsudo rm -f "$OPAM"
+@@ -596,7 +596,7 @@
+ 
+ while true; do
+     printf "## Where should it be installed ? [%s] " "$DEFAULT_BINDIR"
+-    read_tty BINDIR
++    BINDIR=""
+     if [ -z "$BINDIR" ]; then BINDIR="$DEFAULT_BINDIR"; fi
+ 
+     if [ -d "$BINDIR" ]; then break
+@@ -604,7 +604,7 @@
+         if [ "${BINDIR#\~/}" != "$BINDIR" ] ; then
+             RES_BINDIR="$HOME/${BINDIR#\~/}"
+             printf "## '%s' resolves to '%s', do you confirm [Y/n] " "$BINDIR" "$RES_BINDIR"
+-            read_tty R
++            R="y"
+             case "$R" in
+                 ""|"y"|"Y"|"yes")
+                    BINDIR="$RES_BINDIR"
+@@ -615,7 +615,7 @@
+             esac
+         fi
+         printf "## %s does not exist. Create ? [Y/n] " "$BINDIR"
+-        read_tty R
++        R="y"
+         case "$R" in
+             ""|"y"|"Y"|"yes")
+             xsudo mkdir -p "$BINDIR"
+@@ -637,7 +637,7 @@
+     if [ "$FRESH" = 1 ]; then
+         if [ "$NOBACKUP" = 1 ]; then
+             printf "## This will clear %s. Continue ? [Y/n] " "$OPAMROOT"
+-            read_tty R
++            R=""
+             case "$R" in
+                 ""|"y"|"Y"|"yes")
+                     rm -rf "$OPAMROOT";;
