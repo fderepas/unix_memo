@@ -46,3 +46,8 @@ Here is how to plug the cables on a [Vision Five 2](https://www.starfivetech.com
 
 ![Connection the probe on UART GPIO pins for Vision Five 2](https://github.com/fderepas/unix_memo/blob/main/img/uart_vision_five_2.jpg)
 
+# W5500-EVB-Pico
+
+![W5500-EVB-Pico pins](https://github.com/fderepas/unix_memo/blob/main/img/w5500-evb-pico-pinout.png)
+
+![Connection the probe on UART GPIO pins for W5500-EVB-Pico](https://github.com/fderepas/unix_memo/blob/main/img/W5500-EVB-Pico.jpg)
