@@ -98,3 +98,22 @@ To use USB to connect to UART for [w5500-evb-pico](https://docs.wiznet.io/Produc
   status = "disabled";
 };
 ```
+
+The following ```prj.conf``` options should be selected:
+```ini
+# USB stack
+CONFIG_USB_DEVICE_STACK=y
+CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT=y
+
+# USB CDC ACM serial device
+CONFIG_USB_CDC_ACM=y
+
+# Console and logging
+CONFIG_SERIAL=y
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+
+# Optional logging
+CONFIG_LOG=y
+CONFIG_LOG_BACKEND_UART=y
+```
