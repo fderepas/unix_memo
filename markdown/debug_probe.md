@@ -48,13 +48,10 @@ Here is how to plug the cables on a [Vision Five 2](https://www.starfivetech.com
 
 # W5500-EVB-Pico
 
-UART can be accessed on the W5500-EVB-Pico either via GPIO pins using the Raspbetty Pi probe or directly via USB. The two modmesm mare=
+UART can be accessed on the w5500-evb-pico either via GPIO pins using the Raspbetty Pi probe or directly via USB. The two modes are described below.
 
-## Via GPIO
-
-Here is how to use GPIO pins to connect to UART.
-
-The corresponding device tree to use for Zephyr:
+## UART via GPIO
+The corresponding device tree should be used for Zephyr:
 ```dts
 / {
 	chosen {
@@ -71,16 +68,16 @@ The corresponding device tree to use for Zephyr:
 };
 ```
 
+GPIO pins GP0 to 2 should be used to connect to UART for w5500-evb-pico as shown in pictures below.
+
 ![W5500-EVB-Pico pins](https://github.com/fderepas/unix_memo/blob/main/img/w5500-evb-pico-pinout.png)
 
 ![Connection the probe on UART GPIO pins for W5500-EVB-Pico](https://github.com/fderepas/unix_memo/blob/main/img/W5500-EVB-Pico.jpg)
 
 
-## Via USB
+## UART via USB
 
-Here is how to use USB to connect to UART.
-
-The corresponding device tree to use for Zephyr:
+To use USB to connect to UART for w5500-evb-pico, the corresponding device tree should be used for Zephyr:
 ```dts
 /{
 	chosen {
