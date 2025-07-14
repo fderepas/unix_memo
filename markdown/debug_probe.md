@@ -48,7 +48,7 @@ Here is how to plug the cables on a [Vision Five 2](https://www.starfivetech.com
 
 # W5500-EVB-Pico
 
-UART can be accessed on the w5500-evb-pico either via GPIO pins using the Raspbetty Pi probe or directly via USB. The two modes are described below.
+UART can be accessed on the [w5500-evb-pico](https://docs.wiznet.io/Product/iEthernet/W5500/w5500-evb-pico) either via GPIO pins using the Raspbetty Pi probe or directly via USB. The two modes are described below.
 
 ## UART via GPIO
 The corresponding device tree should be used for Zephyr:
@@ -77,7 +77,7 @@ GPIO pins GP0 GP1 and GND should be used to connect to UART for w5500-evb-pico a
 
 ## UART via USB
 
-To use USB to connect to UART for w5500-evb-pico, the corresponding device tree should be used for Zephyr:
+To use USB to connect to UART for [w5500-evb-pico](https://docs.wiznet.io/Product/iEthernet/W5500/w5500-evb-pico), the corresponding device tree should be used for Zephyr:
 ```dts
 /{
   chosen {
