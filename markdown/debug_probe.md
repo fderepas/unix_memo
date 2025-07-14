@@ -68,7 +68,7 @@ The corresponding device tree should be used for Zephyr:
 };
 ```
 
-GPIO pins GP0 to 2 should be used to connect to UART for w5500-evb-pico as shown in pictures below.
+GPIO pins GP0 GP1 and GND should be used to connect to UART for w5500-evb-pico as shown in pictures below.
 
 ![W5500-EVB-Pico pins](https://github.com/fderepas/unix_memo/blob/main/img/w5500-evb-pico-pinout.png)
 
@@ -80,7 +80,7 @@ GPIO pins GP0 to 2 should be used to connect to UART for w5500-evb-pico as shown
 To use USB to connect to UART for w5500-evb-pico, the corresponding device tree should be used for Zephyr:
 ```dts
 /{
-	chosen {
+  chosen {
     zephyr,console = &cdc_acm_uart0;
     zephyr,shell-uart = &cdc_acm_uart0;
   };
