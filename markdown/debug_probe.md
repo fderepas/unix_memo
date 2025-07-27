@@ -119,4 +119,4 @@ CONFIG_LOG_BACKEND_UART=y
 ```
 
 # RPi-Pico
-![Rpi-Pico](../img/rpi_pico.png)
+![Rpi-Pico](../img/rpi_pico.jpg)
