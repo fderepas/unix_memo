@@ -1,7 +1,7 @@
 This page details how to use the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/).
 
 
-![Raspberry Pi Debug Probe Box](https://github.com/fderepas/unix_memo/blob/main/img/rpi_debug_probe_box.jpg)
+![Raspberry Pi Debug Probe Box](../img/rpi_debug_probe_box.jpg)
 
 # USB Connection
 
@@ -16,11 +16,11 @@ In case ```/dev/ttyACM0``` does not show up when plugging the probe, make sure t
 
 We use the UART port on the probe that we connect to the following GPIO pins as shown in the photo below.
 
-![Connection the probe on UART GPIO pins](https://github.com/fderepas/unix_memo/blob/main/img/rpi_debug_probe.jpg)
+![Connection the probe on UART GPIO pins](../img/rpi_debug_probe.jpg)
 
 GPIO pins are labelled as shown below on Raspbetty Pi 3 or 4.
 
-![Connection the probe on UART GPIO pins](https://github.com/fderepas/unix_memo/blob/main/img/rpi_gpio.png)
+![Connection the probe on UART GPIO pins](../img/rpi_gpio.png)
 
 The 3-pin debug cable to 0.1 jumper (female) connects the probe to the GPIO. The black cable, ground, is connected to pin #6. Yellow cable (RX/SD) is connected to  pin #8 labelled GPIO 14 (TXD) on the Raspberry Pi. Orange cable(TX/SC) is connected to pin #10 labelled GPIO 15 (RXD) on the Raspberry Pi.
 
@@ -44,7 +44,7 @@ It's then possible to connect from the computer, using login and password of a u
 Here is how to plug the cables on a [Vision Five 2](https://www.starfivetech.com/en/site/boards):
 
 
-![Connection the probe on UART GPIO pins for Vision Five 2](https://github.com/fderepas/unix_memo/blob/main/img/uart_vision_five_2.jpg)
+![Connection the probe on UART GPIO pins for Vision Five 2](../img/uart_vision_five_2.jpg)
 
 # W5500-EVB-Pico
 
@@ -70,9 +70,9 @@ The corresponding device tree should be used for Zephyr:
 
 GPIO pins GP0 GP1 and GND should be used to connect to UART for w5500-evb-pico as shown in pictures below.
 
-![W5500-EVB-Pico pins](https://github.com/fderepas/unix_memo/blob/main/img/w5500-evb-pico-pinout.png)
+![W5500-EVB-Pico pins](../img/w5500-evb-pico-pinout.png)
 
-![Connection the probe on UART GPIO pins for W5500-EVB-Pico](https://github.com/fderepas/unix_memo/blob/main/img/W5500-EVB-Pico.jpg)
+![Connection the probe on UART GPIO pins for W5500-EVB-Pico](../img/W5500-EVB-Pico.jpg)
 
 
 ## UART via USB
@@ -117,3 +117,6 @@ CONFIG_UART_CONSOLE=y
 CONFIG_LOG=y
 CONFIG_LOG_BACKEND_UART=y
 ```
+
+# RPi-Pico
+![Rpi-Pico](../img/rpi_pico.png)
