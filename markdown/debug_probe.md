@@ -120,3 +120,7 @@ CONFIG_LOG_BACKEND_UART=y
 
 # RPi-Pico
 ![Rpi-Pico](../img/rpi_pico.jpg)
+
+# Arduino Nano 33 IoT
+![Arduino Nano 33 IoT](../img/arduino_nano_33_iot.jpg)
+
