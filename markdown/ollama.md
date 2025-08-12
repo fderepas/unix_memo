@@ -7,9 +7,9 @@ curl -fsSL https://ollama.com/install.sh > install.sh # inspect manually the cod
 sh install.sh                                         # execute the code
 ```
  
-Let's download [llama3.2](https://ollama.com/library/llama3.2) from Meta via [ollama](https://ollama.com/):
+Let's download [llama4:16x17b](https://ollama.com/library/llama4:16x17b) from Meta via [ollama](https://ollama.com/):
 ```
-ollama pull llama3.2
+ollama pull llama4:16x17b
 ```
 or if you prefer Deepseek:
 ```
@@ -17,49 +17,45 @@ ollama run deepseek-r1:32b
 ```
 Now we can run the model:
 ```
-ollama run llama3.2
+ollama run llama4:16x17b
 ```
 A prompt appears. We can now ask questions such as "What are memory protection keys in the context of CPU?". If we ask "Write a bash script which asks for numbers and returns a sorted version of the numbers" the answer generated locally without an internet connection is:
 
 ```bash
 #!/bin/bash
 
-# Ask for input
-echo "Enter some numbers (type 'done' when finished)"
-read -r num
+# Function to get numbers from user
+get_numbers() {
+    numbers=()
+    while true; do
+        read -p "Enter a number (or 'done' to finish): " input
+        if [[ $input =~ ^done$ ]]; then
+            break
+        elif [[ $input =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+            numbers+=($input)
+        else
+            echo "Invalid input. Please enter a number or 'done' to finish."
+        fi
+    done
+    echo "${numbers[@]}"
+}
 
-numbers=()
+# Function to sort numbers
+sort_numbers() {
+    local numbers=("$@")
+    local sorted_numbers=($(printf "%s\n" "${numbers[@]}" | sort -n))
+    echo "${sorted_numbers[@]}"
+}
 
-while true; do
-  read -r line
-  if [ "$line" = "done" ]; then
-    break
-  fi
-  numbers+=($line)
-done
+# Main function
+main() {
+    echo "Enter numbers (type 'done' to finish):"
+    numbers=($(get_numbers))
+    sorted_numbers=($(sort_numbers "${numbers[@]}"))
+    echo "Sorted numbers: ${sorted_numbers[@]}"
+}
 
-# Validate user input
-if [ ${#numbers[@]} -eq 0 ]; then
-  echo "No numbers entered!"
-  exit 1
-fi
-
-# Sort the numbers
-readarray -t sorted_numbers < <(printf '%s\n' "${numbers[@]}" | sort -n)
-
-# Print the sorted list
-echo "Sorted numbers:"
-printf '%s ' "${sorted_numbers[@]}"
+# Call main function
+main
 ```
-This result with Llama was given in 30 seconds on a Lenovo Thinkpad P14 with 16 cores, 32GB RAM. The 16 cores were used:
-
-![cpu load](https://github.com/fderepas/unix_memo/blob/main/img/ollama_cpu.png)
-
-To list all images type ```ollama list```:
-
-```
-NAME            	ID          	SIZE  	MODIFIED
-llama3.1:latest 	62757c860e01	4.7 GB	13 minutes ago	
-codegemma:latest	0c96700aaada	5.0 GB	10 minutes ago
-codegemma:7b    	0c96700aaada	5.0 GB	10 minutes ago
-```
+This result with Llama4 was given in 5 seconds on recent powerful computer.
