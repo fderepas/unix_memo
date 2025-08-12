@@ -13,7 +13,7 @@ ollama pull llama4:16x17b
 ```
 or if you prefer Deepseek:
 ```
-ollama run deepseek-r1:32b
+ollama run deepseek-r1:70b
 ```
 Now we can run the model:
 ```
