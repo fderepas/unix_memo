@@ -16,7 +16,7 @@ or if you prefer Deepseek or Gpt-oss (from OpenAI):
 ollama pull deepseek-r1:70b
 ollama pull gpt-oss:120b
 ```
-Now we can run the model on a Mac Stuio with 120G of unified memory:
+Now we can run the model on a Mac Studio with 120G of unified memory:
 ```
 ollama run gpt-oss:120b
 ```
