@@ -11,5 +11,9 @@ This powering can be done using a USB breakount cable. Here is an example of dir
 In [these kinds](https://www.adafruit.com/product/4448) of breakout cables:
 - Red wire connects to 5V power (from USB host)
 - Black wire connects to common data/power ground
-
+Powering the Pi via the GPIO header, you are connecting your power supply directly to the main 5V rail. This means you bypass:
+- The [Polyfuse](https://elinux.org/Polyfuses_explained): A resettable fuse on the USB-C input that protects against over-current events.
+- Over-voltage Protection: Circuitry that protects the Pi from voltage spikes.
+- Reverse-Polarity Protection: A diode that prevents damage if you were to accidentally connect the power backward.
+  
 # USB Connection
