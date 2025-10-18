@@ -8,7 +8,7 @@ This uses a Raspberry Pi 4, [USB breakount cable](https://www.adafruit.com/produ
 
 # Powering the Pi
 
-The Red (+5V) and Black (Ground) cable from the USB breakount cable are plugged in corresponding location in the Relay Expansion Board:
+The Red (+5V) and Black (Ground) cable from the USB breakount cable are plugged in corresponding locations in the Relay Expansion Board:
 
 ![Pi Relay Board USB power](../img/pi_power_usb.jpg)
 
@@ -53,6 +53,11 @@ int main(int argc, char **argv) {
     return 0;
 }
 ```
+Compile with:
+```
+gcc -Wall -o relay_on relay_on.c -lbcm2835
+```
+
 # Turning off
 
 Here is the C code to activate the relays:
@@ -77,4 +82,8 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+```
+Compile with:
+```
+gcc -Wall -o relay_off relay_off.c -lbcm2835
 ```
