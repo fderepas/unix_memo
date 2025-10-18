@@ -31,8 +31,8 @@ cd WiringPi
 # Turning on
 
 Here is the C code to activate the relays:
-```
-include <bcm2835.h>
+```c
+#include <bcm2835.h>
 #include <stdio.h>
 
 int main(int argc, char **argv) {
@@ -62,7 +62,7 @@ gcc -Wall -o relay_on relay_on.c -lbcm2835
 
 Here is the C code to activate the relays:
 ```c
-include <bcm2835.h>
+#include <bcm2835.h>
 #include <stdio.h>
 
 int main(int argc, char **argv) {
