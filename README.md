@@ -10,3 +10,4 @@ Unix stuff to remember
 - [Using the Raspberry Pi Debug Probe](https://github.com/fderepas/unix_memo/blob/main/markdown/debug_probe.md)
 - [Compile packages from source code](https://github.com/fderepas/unix_memo/blob/main/markdown/compile_from_source.md)
 - [Perform direct kernel system calls in C and Rust](https://github.com/fderepas/unix_memo/blob/main/markdown/direct_syscall.md)
+- [Controling electrical devices](https://github.com/fderepas/unix_memo/blob/main/markdown/pi_power.md)
