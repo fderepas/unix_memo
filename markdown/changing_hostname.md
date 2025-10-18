@@ -4,8 +4,8 @@ There are several ways to set the hostname in Ubuntu. Here are two frequent meth
 Create a file named `/etc/cloud/cloud.cfg.d/01-hostname.cfg` which contains:
 ```yaml
 preserve_hostname: false          # let cloud-init set the hostname
-hostname: kbd                     # short hostname
-fqdn: kbd.derepas.com             # optional but recommended
+hostname: myhostname              # short hostname
+fqdn: myhostname.example.com      # optional but recommended
 manage_etc_hosts: true            # have cloud-init keep /etc/hosts in sync
 prefer_fqdn_over_hostname: false  # do not use FQDN for the system hostname
 ```
@@ -17,13 +17,13 @@ manage_etc_hosts: false        # don’t rewrite /etc/hosts
 network: {config: disabled}    # let Netplan/you manage networking
 ```
 
+To turn off cloud init:
+- disable: create an empty file `/etc/cloud/cloud-init.disabled` and reboot.
+- remove: `sudo apt purge cloud-init` (make sure any network config cloud-init created has been replaced).
+
 # DHCP
 
-To disable DHCP:
-```
-
-```
-If you use the default systemd-networkd renderer (typical on Ubuntu Server/RPi images), tell it to ignore DHCP-provided hostnames via netplan:
+To disable DHCP via netplan:
 
 ```yaml
 # /etc/netplan/50-disable-dhcp-hostname.yaml
@@ -41,4 +41,10 @@ Apply it:
 
 ```
 sudo netplan apply
+```
+
+# Manually
+
+```
+sudo hostnamectl set-hostname myhostname
 ```
