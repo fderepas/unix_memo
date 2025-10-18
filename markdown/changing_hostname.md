@@ -2,8 +2,7 @@ There are several ways to set the hostname in Ubuntu. Here are two frequent meth
 # Cloud-init
 
 Create a file named `/etc/cloud/cloud.cfg.d/01-hostname.cfg` which contains:
-```ini
-cloud-config
+```yaml
 preserve_hostname: false          # let cloud-init set the hostname
 hostname: kbd                     # short hostname
 fqdn: kbd.derepas.com             # optional but recommended
@@ -12,7 +11,7 @@ prefer_fqdn_over_hostname: false  # do not use FQDN for the system hostname
 ```
 
 To disable cloud init:
-```ini
+```yaml
 preserve_hostname: true        # don’t reset hostname
 manage_etc_hosts: false        # don’t rewrite /etc/hosts
 network: {config: disabled}    # let Netplan/you manage networking
