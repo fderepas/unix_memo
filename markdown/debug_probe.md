@@ -22,9 +22,9 @@ GPIO pins are labelled as shown below on Raspbetty Pi 3 or 4.
 
 ![Connection the probe on UART GPIO pins](../img/rpi_gpio.png)
 
-The 3-pin debug cable to 0.1 jumper (female) connects the probe to the GPIO. The black cable, ground, is connected to pin #6. Yellow cable (RX/SD) is connected to  pin #8 labelled GPIO 14 (TXD) on the Raspberry Pi. Orange cable(TX/SC) is connected to pin #10 labelled GPIO 15 (RXD) on the Raspberry Pi.
+The 3-pin debug cable connects the probe to the GPIO. The black cable, ground, is connected to pin #6. Yellow cable (RX/SD) is connected to  pin #8 labelled GPIO 14 (TXD) on the Raspberry Pi. Orange cable(TX/SC) is connected to pin #10 labelled GPIO 15 (RXD) on the Raspberry Pi.
 
-On the Raspberry Pi UART is not enabled by default. Make sure that in the file ```/boot/firmware/config.txt``` there is:
+On the Raspberry Pi, UART is not enabled by default. Make sure that in the file ```/boot/firmware/config.txt```, there is:
 ```
 [all]
 enable_uart=1
