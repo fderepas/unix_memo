@@ -1,4 +1,4 @@
-Today locally hosted Large Language Models (LLMs) can be used as man pages. For instance they provide good answers to questions such as "how to get the size of swap memory under linux?".
+Today locally hosted Large Language Models (LLMs) can be used as man pages. For instance they provide good answers to questions such as "how to get the size of swap memory under Linux?".
 
 Here is a way to have locally a Large Language Model (LLM) which runs on a PC. First install  [ollama](https://ollama.com/):
 
