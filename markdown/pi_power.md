@@ -60,7 +60,7 @@ gcc -Wall -o relay_on relay_on.c -lbcm2835
 
 # Turning off
 
-Here is the C code to activate the relays:
+Here is the C code to deactivate the relays:
 ```c
 #include <bcm2835.h>
 #include <stdio.h>
