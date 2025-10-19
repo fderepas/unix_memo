@@ -1,4 +1,4 @@
-# Meta programming in C++.
+# Meta programming in C++
 
 We are going to perform a test of primality at compile time, using C++ template instantiation mechanism.
 
