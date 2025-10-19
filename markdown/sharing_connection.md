@@ -11,7 +11,7 @@ In the example below the Rasberry Pi is connected with a Router:
                                   Wi-Fi (client)
                                         │ wlan0
                          ┌──────────────┴──────────────┐
-                         │        Raspberry Pi 5       │
+                         │        Raspberry Pi         │
                          │  - Wi-Fi uplink (wlan0)     │
                          │  - NAT + DHCP on eth0       │
                          │  - eth0 = 10.42.0.1/24      │
@@ -20,7 +20,7 @@ In the example below the Rasberry Pi is connected with a Router:
                                         │ (UTP cable)
                           (WAN)         │
                          ┌──────────────┴──────────────┐
-                         │           Router            │
+                         │    Router (for isntance)    │
                          │  WAN: DHCP -> 10.42.0.2     │
                          │  LAN: 192.168.1.1/24        │
                          └──────────────┬──────────────┘
@@ -31,7 +31,7 @@ In the example below the Rasberry Pi is connected with a Router:
                   (PC)                (TV)               (IoT)
 ```
 
-With the above architecture the path of an outgoing will be:
+With the above architecture the path of an outgoing packet will be:
 ```
 192.168.1.10 ->
     Router (NAT to 10.42.0.2) ->
@@ -40,6 +40,8 @@ With the above architecture the path of an outgoing will be:
 ```
 
 # Instructions
+Here are the instructions to have the Raspberry Pi to share its conection over the Ethernet port.
+
 To get the list of wifi networks from the command line:
 ```
 nmcli dev wifi list
