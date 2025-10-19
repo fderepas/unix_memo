@@ -5,7 +5,7 @@ This page details how to use the [Raspberry Pi Debug Probe](https://www.raspberr
 
 # USB Connection
 
-The debug probe is connected to the computer using a usb cable.
+The debug probe is connected to the computer using a USB cable.
 
 Under Linux the probe should appear under ```/dev/ttyACM0```.
 
