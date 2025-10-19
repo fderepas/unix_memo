@@ -11,3 +11,5 @@ Unix stuff to remember
 - [Compile packages from source code](https://github.com/fderepas/unix_memo/blob/main/markdown/compile_from_source.md)
 - [Perform direct kernel system calls in C and Rust](https://github.com/fderepas/unix_memo/blob/main/markdown/direct_syscall.md)
 - [Controling electrical devices](https://github.com/fderepas/unix_memo/blob/main/markdown/pi_power.md)
+- [Sharing a wifi connection](https://github.com/fderepas/unix_memo/blob/main/markdown/sharing_connection.md)
+
