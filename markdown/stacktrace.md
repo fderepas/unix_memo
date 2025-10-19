@@ -1,4 +1,4 @@
-This page tells how to display a demangled stack trace for a c++ program under linux.
+This page tells how to display a demangled stack trace for a c++ program under Linux.
 
 We used the ```backtrace``` and ```backtrace_symbols``` system calls.
 
