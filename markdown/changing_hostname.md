@@ -7,8 +7,7 @@ fqdn: myhostname.example.com      # optional but recommended
 manage_etc_hosts: true            # have cloud-init keep /etc/hosts in sync
 prefer_fqdn_over_hostname: false  # do not use FQDN for the system hostname
 ```
-
-# Manually
+Then manually set the name:
 
 ```
 sudo hostnamectl set-hostname myhostname
