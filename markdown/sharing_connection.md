@@ -44,20 +44,19 @@ Here are the instructions to have the Raspberry Pi to share its conection over t
 
 To get the list of wifi networks from the command line:
 ```
-nmcli dev wifi list
+sudo nmcli dev wifi list
 ```
 To connect to a wifi network from the command line:
 ```
-nmcli dev wifi connect "YOUR_SSID" password "YOUR_WIFI_PASSWORD"
+sudo nmcli dev wifi connect "YOUR_SSID" password "YOUR_WIFI_PASSWORD"
 ```
 
 List current connection per network interface:
 ```
-nmcli con show
+sudo nmcli con show
 ```
 Share network with "Wired connection 1":
 ```
-nmcli con mod "Wired connection 1" ipv4.method shared ipv6.method ignore connection.autoconnect yes
-nmcli con down "Wired connection 1" || true
-nmcli con up "Wired connection 1"
+sudo nmcli con mod "Wired connection 1" ipv4.method shared ipv6.method ignore connection.autoconnect yes
+sudo nmcli con down "Wired connection 1" || true
 ```
