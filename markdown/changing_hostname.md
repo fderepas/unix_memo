@@ -1,7 +1,7 @@
 # TL;DR
 With Ubuntu and cloud init activated (default config): create a file named `/etc/cloud/cloud.cfg.d/01-hostname.cfg` which contains:
 ```yaml
-preserve_hostname: false          # present cloud-init from setting the hostname
+preserve_hostname: true           # prevent cloud-init from setting the hostname
 manage_etc_hosts: true            # have cloud-init keep /etc/hosts in sync
 prefer_fqdn_over_hostname: false  # do not use FQDN for the system hostname
 ```
@@ -15,7 +15,7 @@ sudo hostnamectl set-hostname myhostname
 
 To use cloud-init to set the host name:
 ```yaml
-preserve_hostname: true           # let cloud-init set the hostname
+preserve_hostname: false          # let cloud-init set the hostname
 hostname: myhostname              # short hostname
 fqdn: myhostname.example.com      # optional but recommended
 manage_etc_hosts: true            # have cloud-init keep /etc/hosts in sync
