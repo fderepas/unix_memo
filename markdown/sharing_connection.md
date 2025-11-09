@@ -20,7 +20,7 @@ In the example below the Rasberry Pi is connected with a Router:
                                         │ (UTP cable)
                           (WAN)         │
                          ┌──────────────┴──────────────┐
-                         │    Router (for isntance)    │
+                         │    Router (for instance)    │
                          │  WAN: DHCP -> 10.42.0.2     │
                          │  LAN: 192.168.1.1/24        │
                          └──────────────┬──────────────┘
@@ -28,7 +28,7 @@ In the example below the Rasberry Pi is connected with a Router:
                      ┌──────────────────┼──────────────────┐
                      │                  │                  │
                 192.168.1.10       192.168.1.20       192.168.1.30
-                  (PC)                (TV)               (IoT)
+                  (PC)               (Phone)              (IoT)
 ```
 
 With the above architecture the path of an outgoing packet will be:
