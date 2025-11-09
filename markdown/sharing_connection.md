@@ -44,6 +44,7 @@ Here are the instructions to have the Raspberry Pi to share its conection over t
 
 To get the list of wifi networks from the command line:
 ```
+sudo apt install -y network-manager
 sudo nmcli dev wifi list
 ```
 To connect to a wifi network from the command line:
