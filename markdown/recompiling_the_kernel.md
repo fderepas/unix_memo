@@ -7,7 +7,7 @@
 
 We assume we are using an ubuntu system. Install some needed packages to compile the kernel:
 ```bash
-sudo apt install -y flex bison gcc make libelf-dev
+sudo apt install -y flex bison gcc make libelf-dev libdw-dev pkg-config
 ```
 
 ## Compile new kernel source code
@@ -17,9 +17,9 @@ Get the sources of the kernel and compile them:
 ```bash
 mkdir new_kernel
 cd new_kernel/
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.8.tar.xz
-tar xf linux-6.12.8.tar.xz
-cd linux-6.12.8/
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.7.tar.xz
+tar xf linux-6.17.7.tar.xz
+cd linux-6.17.7/
 ```
 
 
