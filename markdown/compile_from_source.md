@@ -25,7 +25,7 @@ For instance, now it's possible to dowload the source code of the bash package b
 apt-get source bash
 ```
 
-## Git
+## An example: Git
 Here is how to download source code, perform compilation and install the binaries in directory ```/my/dir```. Type in a shell:
 <!--- check --->
 ```bash
