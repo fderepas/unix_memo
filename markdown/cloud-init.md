@@ -16,7 +16,15 @@ runcmd:
 # Init script
 Here is an example of script to download:
 ```bash
-# setup.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") --hostname HOSTNAME --username jane --server-url https://example.com/init.sh
+
+EOF
+}
 
 HOST=""
 USER_NAME=""
