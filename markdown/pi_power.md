@@ -1,6 +1,12 @@
-This page details how to use the [Raspberry Pi](https://www.raspberrypi.com/) 4 or 5 to control electrical devices using relays.
+This page details how to use the [Raspberry Pi](https://www.raspberrypi.com/) 4 or 5 to control electrical devices using relays. Here is the global picture with one electrical power and an electrical strip as output:
 
-![Pi Relay Board](../img/pi_relay.png)
+![Global view](../img/pi_relay_global.png)
+
+Here is a closer view of the relay board:
+
+![Pi Relay Board](../img/pi_relay_detail.png)
+
+
 
 # Hardware used
 
