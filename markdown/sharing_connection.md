@@ -1,4 +1,4 @@
-This page explains how to configure a Raspberry Pi—or any computer with both Wi-Fi and Ethernet—to share its Wi-Fi connection over the Ethernet port.
+This page explains how to configure a Raspberry Pi—or any computer with both Wi-Fi and Ethernet—to share its Wi-Fi connection over the Ethernet port. It's convenient when you have a single wifi hotspot access by want to use several computers.
 
 # Architecture
 
