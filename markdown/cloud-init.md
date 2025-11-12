@@ -8,9 +8,9 @@ sudo apt install rpi-imager
 Customize the image to connect to a network and create a default user for instance `myuser`. After flashing, re-insert the card. That mounts `system-boot` under `/media/$USER/`. In this directory open the file `user-data` and add:
 ```yaml
 runcmd:
-  - bash -lc 'set -euo pipefail; curl -fsSL http://example.com/setup.sh -o /usr/local/bin/setup.sh'
-  - chmod +x /usr/local/bin/setup.sh
-  - /usr/local/bin/setup.sh --hostname my-host-name --username myuser --server-url http://example.com/init.sh
+  - [bash, '-lc', 'curl -fsSL http://example.com/setup.sh -o /usr/local/bin/setup.sh' ]
+  - [chmod, '+x', '/usr/local/bin/setup.sh' ]
+  - [/usr/local/bin/setup.sh, '--hostname', 'my-host-name', '--username myuser', '--server-url', 'http://example.com/init.sh' ]
 ```
 
 # Init script
@@ -47,7 +47,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     --server-url)
       [[ $# -ge 2 ]] || { echo "Error: --server-url requires an argument." >&2; usage; exit 2; }
-      [[ -z "$USER_NAME" ]] || { echo "Error: --server-url specified more than once." >&2; exit 2; }
+      [[ -z "$SERVER_URL" ]] || { echo "Error: --server-url specified more than once." >&2; exit 2; }
       [[ "$2" != -* ]] || { echo "Error: --server-url value looks like an option: '$2'." >&2; exit 2; }
       SERVER_URL="$2"
       shift 2
