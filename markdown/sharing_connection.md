@@ -42,11 +42,18 @@ With the above architecture the path of an outgoing packet will be:
 # Instructions
 Here are the instructions to have the Raspberry Pi to share its conection over the Ethernet port.
 
+
 To get the list of wifi networks from the command line:
 ```
 sudo apt install -y network-manager
 sudo nmcli dev wifi list
 ```
+
+If wifi is not activated it should be activated with:
+```
+nmcli radio wifi on
+```
+
 To connect to a wifi network from the command line:
 ```
 sudo nmcli dev wifi connect "YOUR_SSID" password "YOUR_WIFI_PASSWORD"
